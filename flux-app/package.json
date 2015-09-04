@@ -1,0 +1,22 @@
+{
+  "name": "flux-app",
+  "version": "1.0.0",
+  "description": "A demo of a simple data flux application",
+  "author": "Leon Baird",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.4.0",
+    "react": "^0.13.3",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "es6-promise": "^3.0.2",
+    "flux": "^2.1.1",
+    "jquery": "^2.1.4",
+    "object-assign": "^4.0.1"
+  }
+}
