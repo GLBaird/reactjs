@@ -18,22 +18,43 @@ var PostBoard = React.createClass({
     getInitialState: function() {
         return {
             notes: [
-                "Get milk from the shops",
-                "Eat loads of pies",
-                "Wash the cat or dog",
-                "Learn React"
+                {text: "Get milk from the shops", id:1},
+                {text: "Eat loads of pies", id:2},
+                {text: "Wash the cat or dog", id:3},
+                {text: "Learn React", id:4}
             ]
-        }
+        };
+    },
+
+    updateHandler: function(index, newText) {
+        var changes = this.state.notes;
+        changes[index].text = newText;
+        this.setState({ notes: changes });
+    },
+
+    removeHandler: function(index) {
+        var changes = this.state.notes;
+        changes.splice(index, 1);
+        this.setState({ notes: changes });
+    },
+
+    getUniqueID: function() {
+        this.counter = this.counter || 0;
+        return counter++;
     },
 
     render: function() {
         return (
             <div style={this.style}>
-                {this.state.notes.map(function(text, index) {
+                {this.state.notes.map(function(data, index) {
                     return (
-                        <Note noteText={text} />
+                        <Note
+                            onRemove={this.removeHandler.bind(this, index)}
+                            onChange={this.updateHandler.bind(this, index)}
+                            noteText={data.text}
+                            key={data.id} />
                     );
-                })}
+                }.bind(this))}
             </div>
         );
     }

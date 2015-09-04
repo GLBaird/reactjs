@@ -1,0 +1,29 @@
+.example-enter {
+  opacity: 0;
+  -webkit-transform: translateX(-3em);
+  -moz-transform: translateX(-3em);
+  -o-transform: translateX(-3em);
+  transform: translateX(-3em);
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity .5s ease-in, all 1s ease-in;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0;
+  -webkit-transform: translateX(-2em);
+  -moz-transform: translateX(-2em);
+  -o-transform: translateX(-2em);
+  transform: translateX(-2em);
+  transition: opacity .5s ease-in, all 1s ease-in;
+}

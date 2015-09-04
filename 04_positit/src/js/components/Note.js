@@ -2,6 +2,9 @@
 
 var React = require('react');
 
+var $ = require('jquery');
+require('jquery-ui');
+
 var Note = React.createClass({
     propTypes: {
         noteText: React.PropTypes.string.isRequired,
@@ -18,6 +21,10 @@ var Note = React.createClass({
             editMode: false,
             editText: null
         }
+    },
+    componentDidMount: function() {
+        var node = React.findDOMNode(this);
+        $(node).draggable();
     },
     editNote: function(e) {
         this.setState({
@@ -41,7 +48,7 @@ var Note = React.createClass({
     },
     getNoteLayout: function() {
         return (
-            <div className="note">
+            <div ref="note" className="note">
                 <p>{this.props.noteText}</p>
                 <p className="buttons">
                     <button onClick={this.editNote} className="btn btn-sm glyphicon glyphicon-pencil"> </button>

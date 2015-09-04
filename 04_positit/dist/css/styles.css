@@ -1,5 +1,5 @@
 .note {
-    position: relative;
+    position: absolute;
     width: 12em;
     height: 12em;
     background: yellow;
