@@ -4,7 +4,9 @@ var React = require('react');
 
 var Note = React.createClass({
     propTypes: {
-        noteText: React.PropTypes.string.isRequired
+        noteText: React.PropTypes.string.isRequired,
+        onChange: React.PropTypes.func.isRequired,
+        onRemove: React.PropTypes.func.isRequired
     },
     getDefaultProps: function() {
         return {
@@ -13,18 +15,29 @@ var Note = React.createClass({
     },
     getInitialState: function() {
         return {
-            editMode: false
+            editMode: false,
+            editText: null
         }
     },
     editNote: function(e) {
-        console.log("Changing");
-        this.setState({ editMode: true });
+        this.setState({
+            editMode: true,
+            editText: this.props.noteText
+        });
+    },
+    updateEditText: function(e) {
+        this.setState({editText: e.target.value});
     },
     trashNote: function(e) {
-        alert("Trash");
+        if (typeof this.props.onRemove === "function") {
+            this.props.onRemove();
+        }
     },
     saveChanges: function() {
-        alert("SAVE");
+        if (typeof this.props.onChange === "function") {
+            this.props.onChange(this.state.editText);
+        }
+        this.setState({editMode: false});
     },
     getNoteLayout: function() {
         return (
@@ -40,7 +53,7 @@ var Note = React.createClass({
     getEditLayout: function() {
         return (
             <div className="note">
-                <textarea value={this.props.noteText}></textarea>
+                <textarea onChange={this.updateEditText} value={this.state.editText}></textarea>
                 <p className="buttons">
                     <button onClick={this.saveChanges} className="btn btn-sm glyphicon glyphicon-floppy-save"> </button>
                 </p>

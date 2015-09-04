@@ -19605,7 +19605,9 @@ var React = require('react');
 
 var Note = React.createClass({displayName: "Note",
     propTypes: {
-        noteText: React.PropTypes.string.isRequired
+        noteText: React.PropTypes.string.isRequired,
+        onChange: React.PropTypes.func.isRequired,
+        onRemove: React.PropTypes.func.isRequired
     },
     getDefaultProps: function() {
         return {
@@ -19614,18 +19616,29 @@ var Note = React.createClass({displayName: "Note",
     },
     getInitialState: function() {
         return {
-            editMode: false
+            editMode: false,
+            editText: null
         }
     },
     editNote: function(e) {
-        console.log("Changing");
-        this.setState({ editMode: true });
+        this.setState({
+            editMode: true,
+            editText: this.props.noteText
+        });
+    },
+    updateEditText: function(e) {
+        this.setState({editText: e.target.value});
     },
     trashNote: function(e) {
-        alert("Trash");
+        if (typeof this.props.onRemove === "function") {
+            this.props.onRemove();
+        }
     },
     saveChanges: function() {
-        alert("SAVE");
+        if (typeof this.props.onChange === "function") {
+            this.props.onChange(this.state.editText);
+        }
+        this.setState({editMode: false});
     },
     getNoteLayout: function() {
         return (
@@ -19641,7 +19654,7 @@ var Note = React.createClass({displayName: "Note",
     getEditLayout: function() {
         return (
             React.createElement("div", {className: "note"}, 
-                React.createElement("textarea", {value: this.props.noteText}), 
+                React.createElement("textarea", {onChange: this.updateEditText, value: this.state.editText}), 
                 React.createElement("p", {className: "buttons"}, 
                     React.createElement("button", {onClick: this.saveChanges, className: "btn btn-sm glyphicon glyphicon-floppy-save"}, " ")
                 )
@@ -19663,11 +19676,56 @@ module.exports = Note;
 /** @jsx React.DOM */
 
 var React = require('react');
-var Note  = require('./components/Note');
+
+var Note = require('./Note');
+
+var PostBoard = React.createClass({displayName: "PostBoard",
+
+    style: {
+        background: "#b59c31",
+        position: "absolute",
+        top: "0",
+        left: "0",
+        bottom: "0",
+        right: "0"
+    },
+
+    getInitialState: function() {
+        return {
+            notes: [
+                "Get milk from the shops",
+                "Eat loads of pies",
+                "Wash the cat or dog",
+                "Learn React"
+            ]
+        }
+    },
+
+    render: function() {
+        return (
+            React.createElement("div", {style: this.style}, 
+                this.state.notes.map(function(text, index) {
+                    return (
+                        React.createElement(Note, {noteText: text})
+                    );
+                })
+            )
+        );
+    }
+
+});
+
+module.exports = PostBoard;
+
+},{"./Note":156,"react":155}],158:[function(require,module,exports){
+/** @jsx React.DOM */
+
+var React = require('react');
+var PostBoard = require('./components/PostBoard');
 
 React.render(
-    React.createElement(Note, null),
+    React.createElement(PostBoard, null),
     document.getElementById('app_container')
 );
 
-},{"./components/Note":156,"react":155}]},{},[157]);
+},{"./components/PostBoard":157,"react":155}]},{},[158]);

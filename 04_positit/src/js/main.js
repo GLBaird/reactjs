@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var Note  = require('./components/Note');
+var PostBoard = require('./components/PostBoard');
 
 React.render(
-    <Note />,
+    <PostBoard />,
     document.getElementById('app_container')
 );
