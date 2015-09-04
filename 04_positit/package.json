@@ -1,0 +1,19 @@
+{
+  "name": "04_positit",
+  "version": "1.0.0",
+  "description": "PostIT Note Application",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leon Baird",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "jquery-ui": "^1.10.5",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
