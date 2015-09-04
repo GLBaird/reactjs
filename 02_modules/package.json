@@ -1,0 +1,15 @@
+{
+  "name": "02_modules",
+  "version": "1.0.0",
+  "description": "A simple demo of a node module workflow",
+  "author": "Leon Baird",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "react-tools": "^0.13.3"
+  }
+}

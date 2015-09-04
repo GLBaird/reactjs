@@ -1,0 +1,22 @@
+{
+  "name": "isomorphic",
+  "version": "1.0.0",
+  "description": "Demo isomorphic app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "build:jsx": "jsx -x jsx src/ build/",
+    "build:browserify": "browserify app.js > build/bundle.js",
+    "build": "npm run build:jsx && npm run build:browserify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leon Baird",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "react": "^0.13.3"
+  },
+  "browser": {
+    "./app.js": "./client.js"
+  }
+}
