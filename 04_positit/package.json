@@ -2,7 +2,6 @@
   "name": "04_positit",
   "version": "1.0.0",
   "description": "PostIT Note Application",
-  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +13,10 @@
     "react": "^0.13.3"
   },
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "browserify": "^11.0.1",
+    "gulp": "^3.9.0",
+    "gulp-uglify": "^1.4.0",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
