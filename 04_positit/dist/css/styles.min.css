@@ -1,0 +1,1 @@
+.note{position:absolute;width:150px;height:150px;background:#ff0;border:1px solid #000;border-radius:8px;box-shadow:2px 2px 5px rgba(0,0,0,.3)}.note p{margin:1em}.note p.buttons{position:absolute;bottom:0;left:0;right:0;text-align:right}.note textarea{background:0 0;border:none;position:absolute;top:1em;left:1em;width:10em;box-sizing:border-box;bottom:3.5em}

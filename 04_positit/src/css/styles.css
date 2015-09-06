@@ -1,11 +1,42 @@
+html, body {
+    height: 100%;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #444;
+    color: white;
+    box-shadow: 0 2px 4px #444;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-weight: normal;
+    text-align: center;
+}
+
+button {
+    outline: none !important;
+}
+
+header button.btn {
+    position: absolute;
+    top: 0.8em;
+    right: 1em;
+}
+
 .note {
     position: absolute;
-    width: 12em;
-    height: 12em;
-    background: yellow;
+    width: 150px;
+    height: 150px;
+    background: rgb(210, 209, 42);
     border: 1px solid black;
     border-radius: 8px;
-    box-shadow: 2px 2px 4px #999;
+    box-shadow: 2px 2px 5px rgba(0,0,0, 0.3);
+    cursor: move;
 }
 
 .note p {
@@ -26,7 +57,9 @@
     position: absolute;
     top: 1em;
     left: 1em;
-    width: 10em;
+    width: 120px;
     box-sizing: border-box;
     bottom: 3.5em;
+    cursor: text;
+    outline: none;
 }
