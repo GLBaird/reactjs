@@ -1,0 +1,75 @@
+html, body {
+    height: 100%;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #444;
+    color: white;
+    box-shadow: 0 2px 4px #444;
+    z-index: 1000;
+}
+
+h1 {
+    margin: 0.7em 0;
+    font-size: 1.5em;
+    font-weight: normal;
+    text-align: center;
+}
+
+button {
+    outline: none !important;
+    margin-left: 0.2em;
+}
+
+header button.btn {
+    position: absolute;
+    top: 0.7em;
+    right: 1em;
+}
+
+.note {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0, 0.3);
+    cursor: move;
+    background: #f1da36;
+    background: -moz-linear-gradient(top,  #f9ec89 0%, #f1da36 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9ec89), color-stop(100%,#f1da36));
+    background: -webkit-linear-gradient(top,  #f9ec89 0%,#f1da36 100%);
+    background: -o-linear-gradient(top,  #f9ec89 0%,#f1da36 100%);
+    background: -ms-linear-gradient(top,  #f9ec89 0%,#f1da36 100%);
+    background: linear-gradient(to bottom,  #f9ec89 0%,#f1da36 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9ec89', endColorstr='#f1da36',GradientType=0 );
+}
+
+.note p {
+    margin: 1em;
+}
+
+.note p.buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: right;
+}
+
+.note textarea {
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    width: 120px;
+    box-sizing: border-box;
+    bottom: 3.5em;
+    cursor: text;
+    outline: none;
+}
