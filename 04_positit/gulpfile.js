@@ -36,7 +36,6 @@ var gulp        = require('gulp');
 var uglify      = require('gulp-uglify');
 var concat      = require('gulp-concat')
 var filesize    = require('gulp-filesize');
-var gutil       = require('gulp-util');
 var minifyCSS   = require('gulp-minify-css');
 var browserify  = require('browserify');
 var reactify    = require('reactify');
